@@ -1,0 +1,17 @@
+body {
+    background-color: #f8f8f8;
+}
+
+.halo-image {
+    
+	background-color: #fff; /* in case background image can't be found */
+    height: 189px;   
+    width: 46%;  /* aim to have 3 images show for square monitors and landscape monitors */
+    margin: 0 auto;
+    background: url('../img/halo.jpg');
+    background-repeat: space; /* repeat images horizontally and don't show partial images */
+    background-size: contain;  /* causes image to shrink and fit when viewport is phone sized */
+   
+    
+    
+}
