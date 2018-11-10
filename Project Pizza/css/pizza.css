@@ -1,17 +1,55 @@
 body {
-    background-color: #f8f8f8;
+    background-color:#f7b82b;
+    /* background-color: #500f86; */
+    font-family: 'gothic_ultra_otregular';
+    margin: 0px; 
+    display: block;
+
+}
+/* ---------------------------------------------------------------
+                        BANNER STYLING 
+   --------------------------------------------------------------- */
+.banner-bg {
+    background-color: #500f86;
+    padding-top: 10px;
+    height: 365px;
+    
 }
 
-.halo-image {
-    
-	background-color: #fff; /* in case background image can't be found */
-    height: 189px;   
-    width: 46%;  /* aim to have 3 images show for square monitors and landscape monitors */
-    margin: 0 auto;
-    background: url('../img/halo.jpg');
+.wings-bg {
+    background: url('../img/wings1.png');
+    margin: 10px;
     background-repeat: space; /* repeat images horizontally and don't show partial images */
     background-size: contain;  /* causes image to shrink and fit when viewport is phone sized */
-   
-    
-    
+    background-position: center; 
+}
+
+.pizza-halo-bg {
+    background-color: #fff; /* in case background image can't be found */
+    height: 198px;   
+    margin: 0 auto;
+    background: url('../img/halo.png');
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center; 
+    background-size: contain;
+    /* border-top: 8px; 
+    border-top-color: #fff; */   
+}
+
+/* ---------------------------------------------------------------
+            FONT from https://www.fontsquirrel.com/
+   --------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'gothic_ultra_otregular';
+    src: url('gothic_ultra_ot-webfont.eot');
+    src: url('gothic_ultra_ot-webfont.eot?#iefix') format('embedded-opentype'),
+            url('gothic_ultra_ot-webfont.woff2') format('woff2'),
+            url('gothic_ultra_ot-webfont.woff') format('woff'),
+            url('gothic_ultra_ot-webfont.ttf') format('truetype'),
+            url('gothic_ultra_ot-webfont.svg#gothic_ultra_otregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
