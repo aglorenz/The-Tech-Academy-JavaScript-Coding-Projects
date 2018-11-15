@@ -9,41 +9,122 @@
     <!-- <script src="main.js"></script> -->
     
     <!-- ****** faviconit.com favicons ****** -->
-    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-	<!-- <link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" type="image/png" sizes="196x196" href="favicon-192.png">
-	<link rel="icon" type="image/png" sizes="160x160" href="favicon-160.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
-	<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-	<link rel="apple-touch-icon" href="favicon-57.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="favicon-114.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="favicon-72.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="favicon-144.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="favicon-60.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="favicon-120.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="favicon-76.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="favicon-152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="favicon-144.png">
-	<meta name="msapplication-config" content="/browserconfig.xml"> -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 	<!-- ****** faviconit.com favicons ****** -->
     
 </head>
 <body>
+ 
+    <!----------------------------- HEADER --------------------------------->
+    <header class=header-bg>
+        <div class=wings-bg> 
+            <div class="pizza-halo"></div>
+            <h1><strong>PIZZA HEAVEN</strong></h1>
+        </div>
+    </header>
+    
+    <!----------------------------- MAIN MENU ----------------------------------->
+    <main>
+        <br>
+        <h1>Create Your Pizza Below!</h1>
+        <form class="menu-flx">
+            <div class="menu-cell">
+                <h2 class="menu-cell-hdr"> Size:</h2>
+                <input class="size" type="radio" name="size" value="Personal" checked> Personal<br>
+                <input class="size" type="radio" name="size" value="Medium"> Medium<br>
+                <input class="size" type="radio" name="size" value="Large"> Large<br>
+                <input class="size" type="radio" name="size" value="Extra Large"> Extra Large<br>
+            </div>
+            <div class="menu-cell">
+                <h2 class="menu-cell-hdr">Crust:</h2>
+                <input class="crust" type="radio" name="crust" value="Plain" checked> Plain<br>
+                <input class="crust" type="radio" name="crust" value="Garlic Butter"> Garlic Butter<br>
+                <input class="crust" type="radio" name="crust" value="Cheese Stuffed"> Cheese Stuffed<br>
+                <input class="crust" type="radio" name="crust" value="Spicy"> Spicy<br>
+                <input class="crust" type="radio" name="crust" value="House Special"> House Special<br>
+            </div>
+            <div class="menu-cell">
+                <h2 class="menu-cell-hdr">Sauce:</h2>
+                <input class="sauce" type="radio" name="sauce" value="Marinara Sauce" checked> Marinara Sauce<br>
+                <input class="sauce" type="radio" name="sauce" value="White Sauce"> White Sauce<br>
+                <input class="sauce" type="radio" name="sauce" value="BBQ Sauce"> BBQ Sauce<br>
+                <input class="sauce" type="radio" name="sauce" value="No Sauce"> No Sauce<br>
+            </div>
+            <div class="menu-cell">
+                <h2 class="menu-cell-hdr">Cheese:</h2>
+                <input class="cheese" type="radio" name="cheese" value="No Cheese" checked> No Cheese<br>
+                <input class="cheese" type="radio" name="cheese" value="Regular Cheese"> Regular Cheese<br>
+                <input class="cheese" type="radio" name="cheese" value="Extra Cheese"> Extra Cheese<br>
+            </div>
+            <div class="menu-cell">
+                <h2 class="menu-cell-hdr">Meats:</h2>
+                <input class="meat" type="checkbox" name="meat" value="Pepperoni"> Pepperoni<br>
+                <input class="meat" type="checkbox" name="meat" value="Sausage"> Sausage<br>
+                <input class="meat" type="checkbox" name="meat" value="Canadian Bacon"> Canadian Bacon<br>
+                <input class="meat" type="checkbox" name="meat" value="Ground Beef"> Ground Beef<br>
+                <input class="meat" type="checkbox" name="meat" value="Anchovy"> Anchovy<br>
+                <input class="meat" type="checkbox" name="meat" value="Chicken"> Chicken<br>
+            </div>
+            <div class="menu-cell">
+                <h2 class="menu-cell-hdr">Veggies:</h2>
+                <input class="veggies" type="checkbox" name="veggies" value="Tomatoes"> Tomatoes<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Onions"> Onions<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Olives"> Olives<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Green Peppers"> Green Peppers<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Mushrooms"> Mushrooms<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Pineapple"> Pineapple<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Spinach"> Spinach<br>
+                <input class="veggies" type="checkbox" name="veggies" value="Jalapeno"> Jalapeno<br>
+            </div>
+        </form>
+        <br>
+
+        <!----------------------------- CONTROLS ----------------------------------->
+        <div class="menu-flx">
+            <div class="button" onclick="getReceipt()">
+                <p><strong>PLACE ORDER</strong></p>
+            </div>
+            <div class="button" onclick="clearSelections()">
+                <p><strong>CANCEL</strong></p>
+            </div>            
+        </div>
+        <br>
+        
+        <!----------------------------- CART ----------------------------------->
+            <div id="cart" class="menu-flx" >
+                <div id="itm-hdr" class="cart-cell">
+                    <h3>Selections</h3>
+                </div>
+                <div id="subtot-hdr" class="cart-cell">
+                    <h3>Subtotal</h3>
+                </div>
+                <div id="itm-sel" class="cart-cell" >
+                    crust
+                    <br>
+                    crust
+                    <br>
+                    crust
+                    <br>
+                </div>
+                <div id="itm-prc" class="cart-cell">
+                    1
+                    <br>
+                    1
+                    <br>
+                    1
+                    <br>
+                </div>
+                <div id="tot-prc-hdr" class="cart-cell">
+                    <h3>Total Price:</h3>
+                </div>
+                <div id="tot-prc" class="cart-cell">
+                    <h3>1 million</h3>
+                </div>
+            </div>
+        <br>
+</main>
+    
+    
     
 </body>
-    <!-- <div style="background-color:#500f86; padding-top: 8px"></div>   -->
-    <div class=banner-bg>
-        <div class=wings-bg> 
-
-            <div class="pizza-halo-bg"></div>
-            <h1 style="color:gold;  margin-top: .3em; font-size: 100px; text-shadow: 5px 5px #000;
-            text-align: center;" ><strong>PIZZA HEAVEN</strong></h1>
-        </div>
-    </div>
-
 </html>
