@@ -6,7 +6,7 @@
     <title>Pizza Heaven</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/pizza.css" media="screen"/>
-    <!-- <script src="main.js"></script> -->
+    <!-- <script src="pizza_heaven.js"></script> -->
     
     <!-- ****** faviconit.com favicons ****** -->
         <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -27,7 +27,7 @@
     <main>
         <br>
         <h1>Create Your Pizza Below!</h1>
-        <form class="menu-flx">
+        <form id="menuForm" class="menu-flx">
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr"> Size:</h2>
                 <input class="size" type="radio" name="size" value="Personal" checked> Personal<br>
@@ -81,7 +81,7 @@
 
         <!----------------------------- CONTROLS ----------------------------------->
         <div class="menu-flx">
-            <div class="button" onclick="getReceipt()">
+            <div class="button" onclick="processOrder()">
                 <p><strong>PLACE ORDER</strong></p>
             </div>
             <div class="button" onclick="clearSelections()">
@@ -99,11 +99,11 @@
                     <h3>Subtotal</h3>
                 </div>
                 <div id="itm-sel" class="cart-cell" >
-                    crust
+                    placeholders
                     <br>
-                    crust
+                    for layout
                     <br>
-                    crust
+                    purposes
                     <br>
                 </div>
                 <div id="itm-prc" class="cart-cell">
@@ -123,8 +123,8 @@
             </div>
         <br>
 </main>
-    
-    
+
+<script src="pizza_heaven.js"></script>    
     
 </body>
 </html>

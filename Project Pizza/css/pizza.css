@@ -108,7 +108,7 @@ main {
 
 #cart {
     width: 300px; 
-    opacity: .90; 
+    opacity: 0;   /* set to .90 for debug and layout */
     box-shadow: 0 0 5px 3px; 
     border-radius: 0.5em; 
 }
