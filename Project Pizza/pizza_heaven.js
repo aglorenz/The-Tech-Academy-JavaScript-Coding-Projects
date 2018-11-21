@@ -76,7 +76,7 @@ function processOrder() {
     //---------------------------------------------
     // Add cheese selection and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("crust");
+    itemArray = document.getElementsByClassName("cheese");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
             namePriceArray.push([cheeseArray[i][0], cheeseArray[i][1]]); // cheese, price
