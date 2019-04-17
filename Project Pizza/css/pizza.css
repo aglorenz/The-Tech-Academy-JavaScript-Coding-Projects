@@ -97,7 +97,7 @@ main {
     text-align: center;
     line-height: .1em;
     text-shadow: 1.5px 3.5px #000;
-    transition-duration: 0.4s;
+    transition-duration: .5s; 
 }
 
 .button:hover {
