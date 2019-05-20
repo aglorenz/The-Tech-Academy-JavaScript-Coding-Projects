@@ -22,7 +22,11 @@ h1 {
 .header-bg {
     background-color: #500f86;
     padding-top: 10px;
-    height: 400px;    
+    height: 400px;
+    box-shadow: 0 0 5px 3px;
+    /* to show gold halo on bottom of header. Otherwise obscured by .main Brings  */    
+      position: relative;
+      z-index: 200;  
 }
 
 .wings-bg {
@@ -49,8 +53,14 @@ h1 {
 
 main {
     background: url('../img/pizza4.jpg') repeat center ;
+    /* Alternate way (instead of z-index) to get gold halo on bottom of header */
+/*    box-shadow: inset -4px 9px 9px -4px gold;*/
     background-size: 1600px;
     height: auto;
+    /* Push .main z-index below that of .header to show gold halo */
+      position: relative;
+      z-index: 100;  
+
 }
 
 .menu-flx {
@@ -82,7 +92,7 @@ main {
     border-radius: 0.5em;
 }
 
-.menu-flx > .button {
+.button {
     width: 145px;
     height: auto;
     margin: 5px;
@@ -91,14 +101,12 @@ main {
     font-size: 22px;
     box-shadow: 0 0 5px 3px;
     border-radius: 0.5em;
-}
-
-.button {
     text-align: center;
     line-height: .1em;
     text-shadow: 1.5px 3.5px #000;
     transition-duration: .4s; 
 }
+
 
 .button:hover {
     text-shadow: none;
