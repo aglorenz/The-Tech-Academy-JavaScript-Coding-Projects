@@ -30,51 +30,51 @@
         <form id="menuForm" class="menu-flx">
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr"> Size:</h2>
-                <input class="size" type="radio" name="size" value="Personal" checked> Personal<br>
-                <input class="size" type="radio" name="size" value="Medium"> Medium<br>
-                <input class="size" type="radio" name="size" value="Large"> Large<br>
-                <input class="size" type="radio" name="size" value="Extra Large"> Extra Large<br>
+                <input class="size" type="radio" name="size" onclick="processOrder()" value="Personal" checked> Personal<br>
+                <input class="size" type="radio" name="size" onclick="processOrder()"value="Medium"> Medium<br>
+                <input class="size" type="radio" name="size" onclick="processOrder()"value="Large"> Large<br>
+                <input class="size" type="radio" name="size" onclick="processOrder()"value="Extra Large"> Extra Large<br>
             </div>
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr">Crust:</h2>
-                <input class="crust" type="radio" name="crust" value="Plain" checked> Plain<br>
-                <input class="crust" type="radio" name="crust" value="Garlic Butter"> Garlic Butter<br>
-                <input class="crust" type="radio" name="crust" value="Cheese Stuffed"> Cheese Stuffed<br>
-                <input class="crust" type="radio" name="crust" value="Spicy"> Spicy<br>
-                <input class="crust" type="radio" name="crust" value="House Special"> House Special<br>
+                <input class="crust" type="radio" name="crust" onclick="processOrder()" value="Plain" checked> Plain<br>
+                <input class="crust" type="radio" name="crust" onclick="processOrder()" value="Garlic Butter"> Garlic Butter<br>
+                <input class="crust" type="radio" name="crust" onclick="processOrder()" value="Cheese Stuffed"> Cheese Stuffed<br>
+                <input class="crust" type="radio" name="crust" onclick="processOrder()" value="Spicy"> Spicy<br>
+                <input class="crust" type="radio" name="crust" onclick="processOrder()" value="House Special"> House Special<br>
             </div>
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr">Sauce:</h2>
-                <input class="sauce" type="radio" name="sauce" value="Marinara Sauce" checked> Marinara Sauce<br>
-                <input class="sauce" type="radio" name="sauce" value="White Sauce"> White Sauce<br>
-                <input class="sauce" type="radio" name="sauce" value="BBQ Sauce"> BBQ Sauce<br>
-                <input class="sauce" type="radio" name="sauce" value="No Sauce"> No Sauce<br>
+                <input class="sauce" type="radio" name="sauce" onclick="processOrder()" value="Marinara Sauce" checked> Marinara Sauce<br>
+                <input class="sauce" type="radio" name="sauce" onclick="processOrder()" value="White Sauce"> White Sauce<br>
+                <input class="sauce" type="radio" name="sauce" onclick="processOrder()" value="BBQ Sauce"> BBQ Sauce<br>
+                <input class="sauce" type="radio" name="sauce" onclick="processOrder()" value="No Sauce"> No Sauce<br>
             </div>
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr">Cheese:</h2>
-                <input class="cheese" type="radio" name="cheese" value="No Cheese" checked> No Cheese<br>
-                <input class="cheese" type="radio" name="cheese" value="Regular Cheese"> Regular Cheese<br>
-                <input class="cheese" type="radio" name="cheese" value="Extra Cheese"> Extra Cheese<br>
+                <input class="cheese" type="radio" name="cheese" onclick="processOrder()" value="No Cheese" checked> No Cheese<br>
+                <input class="cheese" type="radio" name="cheese" onclick="processOrder()" value="Regular Cheese"> Regular Cheese<br>
+                <input class="cheese" type="radio" name="cheese" onclick="processOrder()" value="Extra Cheese"> Extra Cheese<br>
             </div>
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr">Meats:</h2>
-                <input class="meat" type="checkbox" name="meat" value="Pepperoni"> Pepperoni<br>
-                <input class="meat" type="checkbox" name="meat" value="Sausage"> Sausage<br>
-                <input class="meat" type="checkbox" name="meat" value="Canadian Bacon"> Canadian Bacon<br>
-                <input class="meat" type="checkbox" name="meat" value="Ground Beef"> Ground Beef<br>
-                <input class="meat" type="checkbox" name="meat" value="Anchovy"> Anchovy<br>
+                <input class="meat" type="checkbox" name="meat" onclick="processOrder()" value="Pepperoni"> Pepperoni<br>
+                <input class="meat" type="checkbox" name="meat" onclick="processOrder()" value="Sausage"> Sausage<br>
+                <input class="meat" type="checkbox" name="meat" onclick="processOrder()" value="Canadian Bacon"> Canadian Bacon<br>
+                <input class="meat" type="checkbox" name="meat" onclick="processOrder()" value="Ground Beef"> Ground Beef<br>
+                <input class="meat" type="checkbox" name="meat" onclick="processOrder()" onclick="processOrder()" value="Anchovy"> Anchovy<br>
                 <input class="meat" type="checkbox" name="meat" value="Chicken"> Chicken<br>
             </div>
             <div class="menu-cell">
                 <h2 class="menu-cell-hdr">Veggies:</h2>
-                <input class="veggies" type="checkbox" name="veggies" value="Tomatoes"> Tomatoes<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Onions"> Onions<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Olives"> Olives<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Green Peppers"> Green Peppers<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Mushrooms"> Mushrooms<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Pineapple"> Pineapple<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Spinach"> Spinach<br>
-                <input class="veggies" type="checkbox" name="veggies" value="Jalapeno"> Jalapeno<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Tomatoes"> Tomatoes<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Onions"> Onions<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Olives"> Olives<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Green Peppers"> Green Peppers<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Mushrooms"> Mushrooms<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Pineapple"> Pineapple<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Spinach"> Spinach<br>
+                <input class="veggies" type="checkbox" name="veggies" onclick="processOrder()" value="Jalapeno"> Jalapeno<br>
             </div>
         </form>
         <br>
