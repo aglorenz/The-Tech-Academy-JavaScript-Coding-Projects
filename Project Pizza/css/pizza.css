@@ -63,6 +63,9 @@ main {
 
 }
 
+input {
+    margin-left: 7px;
+}
 .menu-flx {
     display: flex;
     flex-wrap: wrap;

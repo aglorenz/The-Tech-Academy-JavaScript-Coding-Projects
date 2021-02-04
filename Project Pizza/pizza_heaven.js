@@ -43,7 +43,7 @@ function processOrder() {
     //---------------------------------------------
     // Add pizza size and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("size");
+    itemArray = document.getElementsByName("size");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
             namePriceArray.push([sizeArray[i][0], sizeArray[i][1]]); // size, price
