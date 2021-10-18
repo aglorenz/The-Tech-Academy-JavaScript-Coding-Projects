@@ -14,50 +14,87 @@ function processOrder() {
     
     //---------------------------------------------
     // Data driven program
-    // Create lookup tables to drive the program and avoid repeated
-    // if then else if statements
+    // Need dictionaries for size, crust, cheese choices.
+	// All others choices not necessary since they are 1$ each; first one free
+    // 
     //---------------------------------------------
-    var sizeArray= [];  //populate a lookup table of pizza size and price
-    sizeArray.push(["Personal",6]);
-    sizeArray.push(["Medium",10]);
-    sizeArray.push(["Large",14]);
-    sizeArray.push(["Extra Large",16]);
-    
-    var crustArray= [];  //populate a lookup table of crust type and price
-    crustArray.push(["Plain",0]);
-    crustArray.push(["Garlic Butter",0]);
-    crustArray.push(["Cheese Stuffed",3]);
-    crustArray.push(["Spicy",0]);
-    crustArray.push(["House Special",0]);
-    
-    var cheeseArray= [];  //populate a lookup table of cheese type and price
-    cheeseArray.push(["No Cheese",0]);
-    cheeseArray.push(["Regular Cheese",0]);
-    cheeseArray.push(["Extra Cheese",3]);
-
-    var meatCount = 0;   // Number of meat items selected
-    var veggieCount = 0; // Number of veggie items selected
-
-    var itemArray = [];     // to hold array of items contained in various menu sections
+	
+	var menuDict = {
+		sizeDict: {
+			Personal:		6,
+			Medium:			10,
+			Large:			14,
+			"Extra Large":	16		
+		},
+		crustDict: {
+			Plain:				0,
+			"Garlic Butter": 	0,
+			"Cheese Stuffed": 	3,
+			Spicy:				0,
+			"House Special": 	0
+		},
+		sauceDict:  {
+			"Marinara Sauce":	0,
+			"White Sauce":		0,
+			"BBQ Sauce": 		0,
+			"No Sauce":			0
+		},
+		cheeseDict: {
+			"No Cheese":		0,
+			"Regular Cheese":	0,
+			"Extra Cheese":		3
+		},
+		meatDict: {
+			Pepperoni:			1,
+			Sausage:			1,
+			"Canadian Bacon":	1,
+			"Ground Beef":		1,
+			Anchovy:			1,
+			Chicken:			1
+		},
+		veggieDict: {
+			Tomatoes:			1,
+			Onions:				1,
+			Olives:				1,
+			"Green Peppers":	1,
+			Mushrooms:			1,
+			Pineapple:			1,
+			Spinach:			1,
+			Jalapeno:			1
+		}
+	}
+	          
+    var itemArray = [];     // to hold menu items selected by user 
 
     //---------------------------------------------
-    // Add pizza size and price to the array
+    // Add pizza size and price to the cart
     //---------------------------------------------
     itemArray = document.getElementsByName("size");
+	
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
-            namePriceArray.push([sizeArray[i][0], sizeArray[i][1]]); // size, price
+			// Add the value attribute from the html radio button (which is also the pizza item name) to the list, 
+			// and use it to look up the price from the dictionary
+			pizzaSize = itemArray[i].value;
+            namePriceArray.push([pizzaSize, menuDict.sizeDict[pizzaSize]]); // size, price
             {break} // only 1 choice, so break when the first is found
         }
     }
+    // for (var i = 0; i < itemArray.length; i++) {
+        // if (itemArray[i].checked) {
+            // namePriceArray.push([sizeArray[i][0], sizeArray[i][1]]); // size, price
+            // {break} // only 1 choice, so break when the first is found
+        // }
+    // }
     
     //---------------------------------------------
     // Add crust selection and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("crust");
+    itemArray = document.getElementsByName("crust");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
-            namePriceArray.push([crustArray[i][0], crustArray[i][1]]); // crust, price
+			pizzaCrust = itemArray[i].value;
+            namePriceArray.push([pizzaCrust, menuDict.crustDict[pizzaCrust]]); // crust, price
             {break} // only 1 choice, so break when the first is found
         }
     }
@@ -65,10 +102,11 @@ function processOrder() {
     //---------------------------------------------
     // Add sauce selection and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("sauce");
+    itemArray = document.getElementsByName("sauce");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
-            namePriceArray.push([itemArray[i].value, 0]); // sauce, price -- price always 0
+			sauce = itemArray[i].value
+            namePriceArray.push([sauce, menuDict.sauceDict[sauce]]); // sauce, price 
             {break} // only 1 choice, so break when the first is found
         }
     }
@@ -76,10 +114,11 @@ function processOrder() {
     //---------------------------------------------
     // Add cheese selection and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("cheese");
+    itemArray = document.getElementsByName("cheese");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
-            namePriceArray.push([cheeseArray[i][0], cheeseArray[i][1]]); // cheese, price
+			cheese = itemArray[i].value;
+            namePriceArray.push([cheese, menuDict.cheeseDict[cheese]]); // cheese, price
             {break} // only 1 choice, so break when the first is found
         }
     }
@@ -87,29 +126,27 @@ function processOrder() {
     //---------------------------------------------
     // Add meat selection and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("meat");
+	var meatCount = 0;   // Number of meat items selected
+    itemArray = document.getElementsByName("meat");
     for (var i = 0; i < itemArray.length; i++) {
-        if (itemArray[i].checked && meatCount < 1 ) {
-            namePriceArray.push([itemArray[i].value, 0]); // meat, price -- first one free
-            meatCount++;
-        } else if (itemArray[i].checked) {
-            namePriceArray.push([itemArray[i].value, 1]); //  all others $1
-            meatCount++;
-        }
+		meat = itemArray[i].value;
+        if (itemArray[i].checked)  
+			// meat, price -- first one free
+			(meatCount < 1 ) ? namePriceArray.push([meat, 0]) : namePriceArray.push([meat, menuDict.meatDict[meat]]); 
+        meatCount++;
     }
     
     //---------------------------------------------
     // Add veggie selection and price to the array
     //---------------------------------------------
-    itemArray = document.getElementsByClassName("veggies");
+    var veggieCount = 0; // Number of veggie items selected
+    itemArray = document.getElementsByName("veggies");
     for (var i = 0; i < itemArray.length; i++) {
-        if (itemArray[i].checked && veggieCount < 1 ) {
-            namePriceArray.push([itemArray[i].value, 0]); // veggie, price -- first one free
-            veggieCount++;
-        } else if (itemArray[i].checked) {
-            namePriceArray.push([itemArray[i].value, 1]); //  all others $1
-            veggieCount++;
-        }
+		veggie = itemArray[i].value;
+        if (itemArray[i].checked)
+			// veggie, price ==- first one free
+			(veggieCount < 1 ) ? namePriceArray.push([veggie, 0]) : namePriceArray.push([veggie, menuDict.veggieDict[veggie]]);
+		veggieCount++;
     }
     
     //---------------------------------------------
@@ -149,3 +186,6 @@ function clearSelections() {
     document.getElementById("menuForm").reset();
     document.getElementById("cart").style.opacity=0;
 }
+
+// show cart right at the start
+processOrder();
