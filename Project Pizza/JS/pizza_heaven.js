@@ -184,7 +184,7 @@ function displayReceipt(namePriceArray) {
 
 function clearSelections() {
     document.getElementById("menuForm").reset();
-    document.getElementById("cart").style.opacity=0;
+	processOrder();
 }
 
 // show cart right at the start
