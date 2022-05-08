@@ -46,9 +46,9 @@ function processOrder() {
 			Mozzerella:         0,
 			Provolone:          0,
 			Goat:               0,
+            Cheddar:            1,
             Daiya:              1,
 			"Extra Cheese":     1,
-            Parmesan:           0,
 		},
 		meatDict: {
 			Pepperoni:          1,
