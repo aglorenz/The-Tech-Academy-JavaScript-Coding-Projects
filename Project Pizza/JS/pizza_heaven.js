@@ -119,6 +119,12 @@ function processOrder() {
     //---------------------------------------------
     // Add cheese selection and price to the array
     //---------------------------------------------
+    noCheese = document.getElementById("no-cheese");
+    extraCheese = document.getElementById("extra-cheese");
+    // Don't allow extra cheese to be checked if no cheese is selected
+    if (noCheese.checked) {
+        extraCheese.checked = false;
+    }
     itemArray = document.getElementsByName("cheese");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
