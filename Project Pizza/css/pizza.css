@@ -115,6 +115,10 @@ label {
     transition-duration: .4s; 
 }
 
+/* Change cursor to point when hover over selections */
+label, input:hover {
+    cursor: pointer; 
+}
 
 .button:hover {
     text-shadow: none;
