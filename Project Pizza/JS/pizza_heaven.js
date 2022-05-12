@@ -119,12 +119,10 @@ function processOrder() {
     //---------------------------------------------
     // Add cheese selection and price to the array
     //---------------------------------------------
-    noCheese = document.getElementById("no-cheese");
-    extraCheese = document.getElementById("extra-cheese");
+    // var noCheese = document.getElementById("no-cheese");
+    // var extraCheese = document.getElementById("extra-cheese");
     // Don't allow extra cheese to be checked if no cheese is selected
-    if (noCheese.checked) {
-        extraCheese.checked = false;
-    }
+    validateCheese();
     itemArray = document.getElementsByName("cheese");
     for (var i = 0; i < itemArray.length; i++) {
         if (itemArray[i].checked) {
@@ -165,6 +163,18 @@ function processOrder() {
     // Show the receipt to the user
     //---------------------------------------------
     displayReceipt(namePriceArray)
+}
+
+function validateCheese() {
+    let noCheese = document.getElementById("no-cheese");
+    let extraCheese = document.getElementById("extra-cheese");
+    let toolText = document.getElementsByClassName("tooltiptext")
+    if (noCheese.checked && extraCheese.checked) {
+        extraCheese.checked = false;
+        // set tooltip visible 
+        toolText[0].style.visibility="visible";
+        setTimeout(function () { toolText[0].style.visibility="hidden";}, 1700);
+    }
 }
 
 //-----------------------------------------------------------------
