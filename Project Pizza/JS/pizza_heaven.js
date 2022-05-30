@@ -167,7 +167,7 @@ function processOrder() {
 
 // --------------------------------------------------------------------------
 // Checks if No Cheese and Extra Cheese are selected.  If so, cancel the extra 
-// cheese selection and show a tooltip telling use to select a cheese first 
+// cheese selection and show a tooltip telling user to select a cheese first 
 function validateCheese() {
     var noCheese = document.getElementById("no-cheese");
     var extraCheese = document.getElementById("extra-cheese");
