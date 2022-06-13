@@ -232,7 +232,7 @@ processOrder();
 // source:  W3schools.com https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
 $(document).ready(function(){
     // Add smooth scrolling to all links
-    $("div.buttonn").on('click', function(event) {
+    $("div.button").on('click', function(event) {
   
       // Make sure this.hash has a value before overriding default behavior
     //   if (this.hash !== "") {
@@ -251,34 +251,61 @@ $(document).ready(function(){
      
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash;
+          console.log("done");
         });
     //   } // End if
     });
-  });
-  
-  function smoothScroll(id, duration) {
-    const endPoint = typeof id === 'string' ? document.getElementById(id).offsetTop : id.offsetTop
+});
+//http://jsfiddle.net/loktar/yhQZu/18/
+function checkIfInView(element){
+    var offset = element.offset().top - $(window).scrollTop();
+
+    if(offset > window.innerHeight){
+        // Not in view so scroll to it
+        $('html,body').animate({scrollTop: offset}, 1000);
+        return false;
+    }
+   return true;
+}
+
+
+function smoothScroll(id, duration) {
+    const endPoint = typeof id === 'string' ? document.getElementById(id).offsetTop : id.offsetTop;
     const distance = endPoint - window.pageYOffset,
-      rate = (distance * 4) / duration, // px/4ms
-      interval = setInterval(scrollIncrement, 4) //4ms is minimum interval for browser
-    
+        rate = ((distance * 4) / duration) < 1 ? 1 : (distance * 4) / duration, // px/4ms
+        interval = setInterval(scrollIncrement, 4); //4ms is minimum interval for browser
+
+    var itemPriceList = "";
+    itemPriceList += "endPoint = " + endPoint + "<br>";
+    itemPriceList += "distance = " + distance + "<br>";
+    itemPriceList += "rate = " + rate + "<br>";
+    itemPriceList += "interval = " + interval + "<br>";
+    document.getElementById("itm-prc").innerHTML=itemPriceList;
+
+
     // used in below function to determine if we have stopped scrolling 
     var prevYOffset = -1; // initialize previous y - offset to something not possible
-      
+
     function scrollIncrement() {
-      const yOffset = Math.ceil(window.pageYOffset)
-      if (
-        (yOffset >= endPoint && rate >= 0) ||  // scrolling down
-        (yOffset == prevYOffset) ||  // or stop when we can't scroll anymore like when target is near bottom of page
-        (yOffset <= endPoint && rate <= 0)  // scrolling up
-      ) {
-        clearInterval(interval)
-      } else {
-        prevYOffset = yOffset;  // Save current offset for next time this function is called.
-        
-        //keep in mind that scrollBy doesn't work with decimal pixels < 1 like 0.4px, so
-        //if duration is too big, function won't work. rate must end up being >= 1px
-        window.scrollBy(0, rate);
-      }
+        // const yOffset = Math.ceil(window.pageYOffset);
+        const yOffset = (window.pageYOffset);
+        document.getElementById("tot-prc").innerHTML="<h3>YO = "+yOffset+"</h3>";
+        document.getElementById("tot-prc-hdr").innerHTML="<h3>PY = "+prevYOffset+"</h3>";
+
+        // itemPriceList += "yOffset = " + yOffset + "<br>";
+
+        if (
+            (yOffset >= endPoint && rate >= 0) ||  // scrolling down
+            // (yOffset == prevYOffset) ||  // or stop when we can't scroll anymore like when target is near bottom of page
+            (yOffset <= endPoint && rate <= 0)  // scrolling up
+        ) {
+            clearInterval(interval)
+        } else {
+            prevYOffset = yOffset;  // Save current offset for next time this function is called.
+            
+            //keep in mind that scrollBy doesn't work with decimal pixels < 1 like 0.4px, so
+            //if duration is too big, function won't work. rate must end up being >= 1px
+            window.scrollBy(0, rate);
+        } 
     }
-  }
+}
