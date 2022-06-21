@@ -252,10 +252,15 @@ element.addEventListener("click", function(e){
   
   void anim[0].offsetWidth;
   void anim[1].offsetWidth;
-  
-  // -> and re-adding the class
-  anim[0].classList.add("leftwing");
-  anim[1].classList.add("rightwing");
+
+  // Brief timeout needed to allow complete class removal to take effect on iPhone Safari 
+  // before adding it back in. Otherwise only 1 or the other wing restarts but not both 
+  // This is needed only when the animation is currently running.
+  setTimeout(function () { 
+      anim[0].classList.add("leftwing");
+      anim[1].classList.add("rightwing");
+  }, 10);
+
 }, false);
 
 // play stop wings animation
@@ -272,34 +277,6 @@ element.addEventListener("click", function(e){
 // }
 
 
-// smooth scrolling 
-// source:  W3schools.com https://www.w3schools.com/howto/howto_css_smooth_scroll.asp
-$(document).ready(function(){
-    // Add smooth scrolling to all links
-    $("div.buttonnnnnnnnnnnnn").on('click', function(event) {
-  
-      // Make sure this.hash has a value before overriding default behavior
-    //   if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-  
-        // Store hash
-        var hash = "#tot-prc";
-        // var hash = this.hash;
-        
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 900, function(){
-     
-          // Add hash (#) to URL when done scrolling (default click behavior)
-          window.location.hash = hash;
-          console.log("done");
-        });
-    //   } // End if
-    });
-});
 //http://jsfiddle.net/loktar/yhQZu/18/
 function checkIfInView(element){
     var offset = element.offset().top - $(window).scrollTop();
@@ -312,13 +289,6 @@ function checkIfInView(element){
    return true;
 }
 
-// window.addEventListener('scroll', function(ev) {
-
-//     var someDiv = document.getElementById('tot-prc-hdr');
-//     var distanceToTop = someDiv.getBoundingClientRect().top;
- 
-//     console.log(distanceToTop);
-//  });
 
 function scrollUntilVisible(id, duration) {
     const  el = document.getElementById(id);
