@@ -278,11 +278,11 @@ element.addEventListener("click", function(e){
 // Scroll Until Visible
 //////////////////////////////////////////////////////////////////
 
-function scrollUntilVisible(id, duration) {
+function scrollUntilVisible(id, duration, offset=0) {
     const  el = document.getElementById(id);
     const topOfDiv = el.getBoundingClientRect().top + window.pageYOffset; // distance from top of webpage to top of element (visible or not)
     const divHeight = document.getElementById(id).clientHeight;  // height of element
-    const botOfDiv = topOfDiv + divHeight; // top of webpage to bottom of element
+    const botOfDiv = topOfDiv + divHeight + offset; // top of webpage to bottom of element
     // const scrollDistance = botOfDiv - window.innerHeight - window.pageYOffset
     // console.log("topOfDiv = " + topOfDiv);
     // console.log("div height = " + divHeight);
